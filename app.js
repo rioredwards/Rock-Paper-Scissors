@@ -23,6 +23,17 @@ function displayMove() {}
 // function displayScoreboard() {} TODO
 
 // event listeners
+rockBtn.addEventListener('click', () => {
+    console.log('rock click');
+});
+
+paperBtn.addEventListener('click', () => {
+    console.log('paper click');
+});
+
+scissorsBtn.addEventListener('click', () => {
+    console.log('scissors click');
+});
 
 /* Run page load code */
 loadPage();
