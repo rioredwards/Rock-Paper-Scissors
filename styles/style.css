@@ -34,6 +34,11 @@ body {
     border: none;
     outline: none;
     background-color: inherit;
+    cursor: pointer;
+}
+
+.icon-move:hover {
+    transform: scale(1.2);
 }
 
 .hidden {
