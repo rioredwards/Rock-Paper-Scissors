@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 10rem 10rem 10rem;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.triplet {
+    width: 30rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icon-move,
+.icon-result {
+    font-size: 48px;
+}
+
+.icon-move {
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+.hidden {
+    display: none;
+}
