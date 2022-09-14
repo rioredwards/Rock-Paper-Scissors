@@ -28,9 +28,9 @@ function loadPage() {
     // displayScoreboard();
 }
 
-/* function compMove() {
-    const randNum = Math.floor(Math.random() * 3);
-} */
+function compMove() {
+    return selections[Math.floor(Math.random() * selections.length)];
+}
 
 /* Component */
 // get DOM
@@ -50,7 +50,7 @@ function displayMove() {}
 rockBtn.addEventListener('click', () => {
     console.log('rock click');
     userSelection = selections[0];
-    // compSelection = compMove();
+    compSelection = compMove();
     logSelections();
     gameState = 'results';
     // result = calcResult();
@@ -61,7 +61,7 @@ rockBtn.addEventListener('click', () => {
 paperBtn.addEventListener('click', () => {
     console.log('paper click');
     userSelection = selections[1];
-    // compSelection = compMove();
+    compSelection = compMove();
     logSelections();
     gameState = 'results';
     // result = calcResult();
@@ -72,7 +72,7 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
     console.log('scissors click');
     userSelection = selections[2];
-    // compSelection = compMove();
+    compSelection = compMove();
     logSelections();
     gameState = 'results';
     // result = calcResult();
