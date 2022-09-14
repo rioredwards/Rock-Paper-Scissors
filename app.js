@@ -1,10 +1,8 @@
-/* Imports */
-
 /* State */
 let gameState = 'move'; // 'move' or 'results'
 let userSelection; // rock, paper or scissors
 let compSelection; // rock, paper or scissors
-let result; // 'win', 'lose' or 'tie'
+// let result; // 'win', 'lose' or 'tie'
 
 const selections = [
     {
@@ -35,6 +33,7 @@ function getCompMove() {
     return selections[Math.floor(Math.random() * selections.length)];
 }
 
+/* 
 function getResult(userSelection, compSelection) {
     if (userSelection.value === compSelection.value) {
         return 'tie';
@@ -43,16 +42,17 @@ function getResult(userSelection, compSelection) {
     } else if (userSelection.value === compSelection.beats) {
         return 'lose';
     } else {
-        console.warn('Error in getResult()');
+        // console.warn('Error in getResult()');
     }
 }
+ */
 
 /* Component */
 // get DOM
 const moveSection = document.getElementById('move');
 const resultsSection = document.getElementById('results');
 
-const gameStateText = document.getElementById('game-state-text');
+// const gameStateText = document.getElementById('game-state-text');
 const rockBtn = document.getElementById('rockMove');
 const paperBtn = document.getElementById('paperMove');
 const scissorsBtn = document.getElementById('scissorsMove');
@@ -74,53 +74,54 @@ function displayResults() {
 
 // event listeners
 rockBtn.addEventListener('click', () => {
-    console.log('rock click');
     userSelection = selections[0];
     compSelection = getCompMove();
-    logSelections();
-    result = getResult(userSelection, compSelection);
-    console.log(result);
+    // result = getResult(userSelection, compSelection);
     gameState = 'results';
+    // console.log('rock click');
+    // console.log(result);
+    // logSelections();
     // updateScore(result);
     loadPage();
 });
 
 paperBtn.addEventListener('click', () => {
-    console.log('paper click');
     userSelection = selections[1];
     compSelection = getCompMove();
-    logSelections();
-    result = getResult(userSelection, compSelection);
-    console.log(result);
+    // result = getResult(userSelection, compSelection);
     gameState = 'results';
-    // updateScore(result);
+    // console.log('paper click');
+    // console.log(result);
+    // logSelections();
+    // updateScore(result); TODO
     loadPage();
 });
 
 scissorsBtn.addEventListener('click', () => {
-    console.log('scissors click');
     userSelection = selections[2];
     compSelection = getCompMove();
-    logSelections();
-    result = getResult(userSelection, compSelection);
-    console.log(result);
+    // result = getResult(userSelection, compSelection);
     gameState = 'results';
-    // updateScore(result);
+    // console.log('scissors click');
+    // console.log(result);
+    // logSelections();
+    // updateScore(result); TODO
     loadPage();
 });
 
 playAgainBtn.addEventListener('click', () => {
-    console.log('play again click');
     gameState = 'move';
+    // console.log('play again click');
     // resetMove();
     loadPage();
 });
 
 /* Run page load code */
 loadPage();
-logDOM();
+// logDOM();
 
 /* Logging */
+/* 
 function logDOM() {
     console.log('gameStateText: ', gameStateText);
     console.log('rockBtn: ', rockBtn);
@@ -128,9 +129,11 @@ function logDOM() {
     console.log('scissorsBtn: ', scissorsBtn);
     console.log('moveSection: ', moveSection);
     console.log('resultsSection: ', resultsSection);
-}
-
+} 
+*/
+/* 
 function logSelections() {
     console.log('userSelection: ', userSelection);
     console.log('compSelection: ', compSelection);
 }
+ */
