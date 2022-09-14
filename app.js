@@ -23,8 +23,11 @@ const selections = [
 
 /* Actions */
 function loadPage() {
-    displayMove();
-    // displayResults();
+    if (gameState === 'move') {
+        displayMove();
+    } else {
+        displayResults();
+    }
     // displayScoreboard();
 }
 
@@ -46,6 +49,9 @@ function getResult(userSelection, compSelection) {
 
 /* Component */
 // get DOM
+const moveSection = document.getElementById('move');
+const resultsSection = document.getElementById('results');
+
 const gameStateText = document.getElementById('game-state-text');
 const rockBtn = document.getElementById('rockMove');
 const paperBtn = document.getElementById('paperMove');
@@ -54,8 +60,16 @@ const scissorsBtn = document.getElementById('scissorsMove');
 const playAgainBtn = document.getElementById('playAgainButton');
 
 // display
-function displayMove() {}
-// function displayResults() {} TODO
+function displayMove() {
+    resultsSection.classList.add('hidden');
+    moveSection.classList.remove('hidden');
+}
+
+function displayResults() {
+    moveSection.classList.add('hidden');
+    resultsSection.classList.remove('hidden');
+}
+
 // function displayScoreboard() {} TODO
 
 // event listeners
@@ -67,7 +81,6 @@ rockBtn.addEventListener('click', () => {
     result = getResult(userSelection, compSelection);
     console.log(result);
     gameState = 'results';
-    // result = calcResult();
     // updateScore(result);
     loadPage();
 });
@@ -80,7 +93,6 @@ paperBtn.addEventListener('click', () => {
     result = getResult(userSelection, compSelection);
     console.log(result);
     gameState = 'results';
-    // result = calcResult();
     // updateScore(result);
     loadPage();
 });
@@ -93,7 +105,6 @@ scissorsBtn.addEventListener('click', () => {
     result = getResult(userSelection, compSelection);
     console.log(result);
     gameState = 'results';
-    // result = calcResult();
     // updateScore(result);
     loadPage();
 });
@@ -115,6 +126,8 @@ function logDOM() {
     console.log('rockBtn: ', rockBtn);
     console.log('paperBtn: ', paperBtn);
     console.log('scissorsBtn: ', scissorsBtn);
+    console.log('moveSection: ', moveSection);
+    console.log('resultsSection: ', resultsSection);
 }
 
 function logSelections() {
