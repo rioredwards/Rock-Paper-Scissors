@@ -4,7 +4,7 @@
 let gameState = 'move'; // 'move' or 'results'
 let userSelection; // rock, paper or scissors
 let compSelection; // rock, paper or scissors
-let result; // 'win', 'lose'
+let result; // 'win', 'lose' or 'tie'
 
 const selections = [
     {
@@ -28,8 +28,20 @@ function loadPage() {
     // displayScoreboard();
 }
 
-function compMove() {
+function getCompMove() {
     return selections[Math.floor(Math.random() * selections.length)];
+}
+
+function getResult(userSelection, compSelection) {
+    if (userSelection.value === compSelection.value) {
+        return 'tie';
+    } else if (userSelection.beats === compSelection.value) {
+        return 'win';
+    } else if (userSelection.value === compSelection.beats) {
+        return 'lose';
+    } else {
+        console.warn('Error in getResult()');
+    }
 }
 
 /* Component */
@@ -50,8 +62,10 @@ function displayMove() {}
 rockBtn.addEventListener('click', () => {
     console.log('rock click');
     userSelection = selections[0];
-    compSelection = compMove();
+    compSelection = getCompMove();
     logSelections();
+    result = getResult(userSelection, compSelection);
+    console.log(result);
     gameState = 'results';
     // result = calcResult();
     // updateScore(result);
@@ -61,8 +75,10 @@ rockBtn.addEventListener('click', () => {
 paperBtn.addEventListener('click', () => {
     console.log('paper click');
     userSelection = selections[1];
-    compSelection = compMove();
+    compSelection = getCompMove();
     logSelections();
+    result = getResult(userSelection, compSelection);
+    console.log(result);
     gameState = 'results';
     // result = calcResult();
     // updateScore(result);
@@ -72,8 +88,10 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
     console.log('scissors click');
     userSelection = selections[2];
-    compSelection = compMove();
+    compSelection = getCompMove();
     logSelections();
+    result = getResult(userSelection, compSelection);
+    console.log(result);
     gameState = 'results';
     // result = calcResult();
     // updateScore(result);
