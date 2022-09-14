@@ -55,6 +55,12 @@ const rockBtn = document.getElementById('rockMove');
 const paperBtn = document.getElementById('paperMove');
 const scissorsBtn = document.getElementById('scissorsMove');
 
+const rockResult = document.getElementById('rockResult');
+const paperResult = document.getElementById('paperResult');
+const scissorsResult = document.getElementById('scissorsResult');
+const rockSelectionText = document.getElementById('rockSelectionText');
+const paperSelectionText = document.getElementById('paperSelectionText');
+const scissorsSelectionText = document.getElementById('scissorsSelectionText');
 const playAgainBtn = document.getElementById('playAgainButton');
 
 // display
@@ -65,8 +71,67 @@ function displayMove() {
 
 function displayResults() {
     resultsText.textContent = result;
+    displaySelections(userSelection);
     moveSection.classList.add('hidden');
     resultsSection.classList.remove('hidden');
+}
+
+function displaySelections(userSelection) {
+    if (userSelection.value === 'rock') {
+        if (result === 'Win!') {
+            rockResult.classList.add('win');
+            rockSelectionText.textContent = 'You';
+            scissorsResult.classList.add('lose');
+            scissorsSelectionText.textContent = 'Comp';
+        } else if (result === 'Lose!') {
+            rockResult.classList.add('lose');
+            rockSelectionText.textContent = 'You';
+            paperResult.classList.add('win');
+            paperSelectionText.textContent = 'Comp';
+        } else {
+            rockResult.classList.add('draw');
+            rockSelectionText.textContent = 'Both';
+        }
+    } else if (userSelection.value === 'paper') {
+        if (result === 'Win!') {
+            paperResult.classList.add('win');
+            paperSelectionText.textContent = 'You';
+            rockResult.classList.add('lose');
+            rockSelectionText.textContent = 'Comp';
+        } else if (result === 'Lose!') {
+            paperResult.classList.add('lose');
+            paperSelectionText.textContent = 'You';
+            scissorsResult.classList.add('win');
+            scissorsSelectionText.textContent = 'Comp';
+        } else {
+            paperResult.classList.add('draw');
+            paperSelectionText.textContent = 'Both';
+        }
+    } else {
+        if (result === 'Win!') {
+            scissorsResult.classList.add('win');
+            scissorsSelectionText.textContent = 'You';
+            paperResult.classList.add('lose');
+            paperSelectionText.textContent = 'Comp';
+        } else if (result === 'Lose!') {
+            scissorsResult.classList.add('lose');
+            scissorsSelectionText.textContent = 'You';
+            rockResult.classList.add('win');
+            rockSelectionText.textContent = 'Comp';
+        } else {
+            scissorsResult.classList.add('draw');
+            scissorsSelectionText.textContent = 'Both';
+        }
+    }
+}
+
+function resetMove() {
+    rockSelectionText.textContent = '';
+    paperSelectionText.textContent = '';
+    scissorsSelectionText.textContent = '';
+    rockResult.className = 'icon-result';
+    paperResult.className = 'icon-result';
+    scissorsResult.className = 'icon-result';
 }
 
 // function displayScoreboard() {} TODO
@@ -111,7 +176,7 @@ scissorsBtn.addEventListener('click', () => {
 playAgainBtn.addEventListener('click', () => {
     gameState = 'move';
     console.log('play again click');
-    // resetMove();
+    resetMove();
     loadPage();
 });
 
@@ -122,7 +187,7 @@ logDOM();
 /* Logging */
 
 function logDOM() {
-    console.log('gameStateText: ', gameStateText);
+    console.log('gameStateText: ', resultsText);
     console.log('rockBtn: ', rockBtn);
     console.log('paperBtn: ', paperBtn);
     console.log('scissorsBtn: ', scissorsBtn);

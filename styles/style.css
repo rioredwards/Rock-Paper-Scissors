@@ -38,9 +38,21 @@ body {
 }
 
 .icon-move:hover {
-    transform: scale(1.2);
+    transform: scale(1.4);
 }
 
 .hidden {
     display: none;
+}
+
+.win {
+    background-color: rgba(0, 128, 0, 0.7);
+}
+
+.lose {
+    background-color: red;
+}
+
+.draw {
+    background-color: yellow;
 }
