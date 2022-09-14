@@ -47,14 +47,23 @@ function getResult(userSelection, compSelection) {
 
 /* Component */
 // get DOM
+// Sections
 const moveSection = document.getElementById('move');
 const resultsSection = document.getElementById('results');
-const resultsText = document.getElementById('results-text');
 
+// Scoreboard Section
+const wins = document.getElementById('wins-display');
+const loses = document.getElementById('loses-display');
+const draws = document.getElementById('draws-display');
+const total = document.getElementById('total-display');
+
+// Move Sections
 const rockBtn = document.getElementById('rockMove');
 const paperBtn = document.getElementById('paperMove');
 const scissorsBtn = document.getElementById('scissorsMove');
 
+// Results Sections
+const resultsText = document.getElementById('results-text');
 const rockResult = document.getElementById('rockResult');
 const paperResult = document.getElementById('paperResult');
 const scissorsResult = document.getElementById('scissorsResult');

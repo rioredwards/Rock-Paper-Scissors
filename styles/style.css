@@ -10,17 +10,26 @@ body {
 }
 
 .scoreboard {
-    height: 6rem;
+    height: 12rem;
     display: grid;
     justify-content: center;
     align-content: center;
-    margin-bottom: 2rem;
 }
 
 .scores {
+    height: 8rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.5rem;
+}
+
+.scores li {
+    font-size: 1.3rem;
+}
+
+.scores p {
+    font-size: 1.3rem;
+    margin-top: 0.6rem;
 }
 
 .main-container {
