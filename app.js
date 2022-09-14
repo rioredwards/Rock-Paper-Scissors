@@ -1,10 +1,10 @@
 /* State */
 let gameState = 'move'; // 'move' or 'results'
-// let userSelection; // rock, paper or scissors
-// let compSelection; // rock, paper or scissors
-// let result; // 'win', 'lose' or 'tie'
+let userSelection; // rock, paper or scissors
+let compSelection; // rock, paper or scissors
+let result; // 'Win!', 'Lose!' or 'Draw!'
 
-/* const selections = [
+const selections = [
     {
         value: 'rock',
         beats: 'scissors',
@@ -17,7 +17,7 @@ let gameState = 'move'; // 'move' or 'results'
         value: 'scissors',
         beats: 'paper',
     },
-]; */
+];
 
 /* Actions */
 function loadPage() {
@@ -28,31 +28,29 @@ function loadPage() {
     }
     // displayScoreboard();
 }
-/* 
+
 function getCompMove() {
     return selections[Math.floor(Math.random() * selections.length)];
-} */
+}
 
-/* 
 function getResult(userSelection, compSelection) {
     if (userSelection.value === compSelection.value) {
-        return 'tie';
+        return 'Draw!';
     } else if (userSelection.beats === compSelection.value) {
-        return 'win';
+        return 'Win!';
     } else if (userSelection.value === compSelection.beats) {
-        return 'lose';
+        return 'Lose!';
     } else {
-        // console.warn('Error in getResult()');
+        console.warn('Error in getResult()');
     }
 }
- */
 
 /* Component */
 // get DOM
 const moveSection = document.getElementById('move');
 const resultsSection = document.getElementById('results');
+const resultsText = document.getElementById('results-text');
 
-// const gameStateText = document.getElementById('game-state-text');
 const rockBtn = document.getElementById('rockMove');
 const paperBtn = document.getElementById('paperMove');
 const scissorsBtn = document.getElementById('scissorsMove');
@@ -66,6 +64,7 @@ function displayMove() {
 }
 
 function displayResults() {
+    resultsText.textContent = result;
     moveSection.classList.add('hidden');
     resultsSection.classList.remove('hidden');
 }
@@ -74,54 +73,54 @@ function displayResults() {
 
 // event listeners
 rockBtn.addEventListener('click', () => {
-    // userSelection = selections[0];
-    // compSelection = getCompMove();
-    // result = getResult(userSelection, compSelection);
+    userSelection = selections[0];
+    compSelection = getCompMove();
+    result = getResult(userSelection, compSelection);
     gameState = 'results';
-    // console.log('rock click');
-    // console.log(result);
-    // logSelections();
+    console.log('rock click');
+    console.log(result);
+    logSelections();
     // updateScore(result);
     loadPage();
 });
 
 paperBtn.addEventListener('click', () => {
-    // userSelection = selections[1];
-    // compSelection = getCompMove();
-    // result = getResult(userSelection, compSelection);
+    userSelection = selections[1];
+    compSelection = getCompMove();
+    result = getResult(userSelection, compSelection);
     gameState = 'results';
-    // console.log('paper click');
-    // console.log(result);
-    // logSelections();
+    console.log('paper click');
+    console.log(result);
+    logSelections();
     // updateScore(result); TODO
     loadPage();
 });
 
 scissorsBtn.addEventListener('click', () => {
-    // userSelection = selections[2];
-    // compSelection = getCompMove();
-    // result = getResult(userSelection, compSelection);
+    userSelection = selections[2];
+    compSelection = getCompMove();
+    result = getResult(userSelection, compSelection);
     gameState = 'results';
-    // console.log('scissors click');
-    // console.log(result);
-    // logSelections();
+    console.log('scissors click');
+    console.log(result);
+    logSelections();
     // updateScore(result); TODO
     loadPage();
 });
 
 playAgainBtn.addEventListener('click', () => {
     gameState = 'move';
-    // console.log('play again click');
+    console.log('play again click');
     // resetMove();
     loadPage();
 });
 
 /* Run page load code */
 loadPage();
-// logDOM();
+logDOM();
 
 /* Logging */
-/* 
+
 function logDOM() {
     console.log('gameStateText: ', gameStateText);
     console.log('rockBtn: ', rockBtn);
@@ -129,11 +128,9 @@ function logDOM() {
     console.log('scissorsBtn: ', scissorsBtn);
     console.log('moveSection: ', moveSection);
     console.log('resultsSection: ', resultsSection);
-} 
-*/
-/* 
+}
+
 function logSelections() {
     console.log('userSelection: ', userSelection);
     console.log('compSelection: ', compSelection);
 }
- */
