@@ -1,10 +1,10 @@
 /* State */
 let gameState = 'move'; // 'move' or 'results'
-let userSelection; // rock, paper or scissors
-let compSelection; // rock, paper or scissors
+// let userSelection; // rock, paper or scissors
+// let compSelection; // rock, paper or scissors
 // let result; // 'win', 'lose' or 'tie'
 
-const selections = [
+/* const selections = [
     {
         value: 'rock',
         beats: 'scissors',
@@ -17,7 +17,7 @@ const selections = [
         value: 'scissors',
         beats: 'paper',
     },
-];
+]; */
 
 /* Actions */
 function loadPage() {
@@ -28,10 +28,10 @@ function loadPage() {
     }
     // displayScoreboard();
 }
-
+/* 
 function getCompMove() {
     return selections[Math.floor(Math.random() * selections.length)];
-}
+} */
 
 /* 
 function getResult(userSelection, compSelection) {
@@ -74,8 +74,8 @@ function displayResults() {
 
 // event listeners
 rockBtn.addEventListener('click', () => {
-    userSelection = selections[0];
-    compSelection = getCompMove();
+    // userSelection = selections[0];
+    // compSelection = getCompMove();
     // result = getResult(userSelection, compSelection);
     gameState = 'results';
     // console.log('rock click');
@@ -86,8 +86,8 @@ rockBtn.addEventListener('click', () => {
 });
 
 paperBtn.addEventListener('click', () => {
-    userSelection = selections[1];
-    compSelection = getCompMove();
+    // userSelection = selections[1];
+    // compSelection = getCompMove();
     // result = getResult(userSelection, compSelection);
     gameState = 'results';
     // console.log('paper click');
@@ -98,8 +98,8 @@ paperBtn.addEventListener('click', () => {
 });
 
 scissorsBtn.addEventListener('click', () => {
-    userSelection = selections[2];
-    compSelection = getCompMove();
+    // userSelection = selections[2];
+    // compSelection = getCompMove();
     // result = getResult(userSelection, compSelection);
     gameState = 'results';
     // console.log('scissors click');
