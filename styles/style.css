@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    border: 1px solid red;
     text-align: center;
+    /* border: 1px solid red; */
 }
 
 body {
@@ -10,14 +10,14 @@ body {
 }
 
 .scoreboard {
-    height: 12rem;
+    height: 8rem;
     display: grid;
     justify-content: center;
     align-content: center;
 }
 
 .scores {
-    height: 8rem;
+    height: 5rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 1.5rem;
@@ -43,6 +43,7 @@ body {
 }
 
 .triplet {
+    height: 10rem;
     width: 30rem;
     display: flex;
     justify-content: space-around;
@@ -51,6 +52,7 @@ body {
 .icon-move,
 .icon-result {
     font-size: 48px;
+    padding: 0.5rem;
 }
 
 .icon-move {
@@ -64,18 +66,22 @@ body {
     transform: scale(1.4);
 }
 
+.icon-result {
+    border-radius: 1rem;
+}
+
 .hidden {
     display: none;
 }
 
 .win {
-    background-color: rgba(0, 128, 0, 0.7);
+    background-color: rgba(0, 201, 0, 0.7);
 }
 
 .lose {
-    background-color: red;
+    background-color: rgba(226, 0, 0, 0.7);
 }
 
 .draw {
-    background-color: yellow;
+    background-color: rgba(255, 247, 0, 0.7);
 }
