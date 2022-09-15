@@ -45,10 +45,8 @@ function getResult(userSelection, compSelection) {
         return 'Draw!';
     } else if (userSelection.beats === compSelection.value) {
         return 'Win!';
-    } else if (userSelection.value === compSelection.beats) {
-        return 'Lose!';
     } else {
-        console.warn('Error in getResult()');
+        return 'Lose!';
     }
 }
 
@@ -179,10 +177,6 @@ rockBtn.addEventListener('click', () => {
     result = getResult(userSelection, compSelection);
     updateScoreboard();
     gameState = 'results';
-    console.log('rock click');
-    console.log(result);
-    logSelections();
-    // updateScore(result);
     loadPage();
 });
 
@@ -192,10 +186,6 @@ paperBtn.addEventListener('click', () => {
     result = getResult(userSelection, compSelection);
     updateScoreboard();
     gameState = 'results';
-    console.log('paper click');
-    console.log(result);
-    logSelections();
-    // updateScore(result); TODO
     loadPage();
 });
 
@@ -205,25 +195,21 @@ scissorsBtn.addEventListener('click', () => {
     result = getResult(userSelection, compSelection);
     updateScoreboard();
     gameState = 'results';
-    console.log('scissors click');
-    console.log(result);
-    logSelections();
-    // updateScore(result); TODO
     loadPage();
 });
 
 playAgainBtn.addEventListener('click', () => {
     gameState = 'move';
-    console.log('play again click');
     resetMove();
     loadPage();
 });
 
 /* Run page load code */
 loadPage();
-logDOM();
 
 /* Logging */
+/* 
+logDOM();
 
 function logDOM() {
     console.log('gameStateText: ', resultsText);
@@ -238,3 +224,4 @@ function logSelections() {
     console.log('userSelection: ', userSelection);
     console.log('compSelection: ', compSelection);
 }
+ */
