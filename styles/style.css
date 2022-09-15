@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.scoreboard {
+    height: 8rem;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.scores {
+    height: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.5rem;
+}
+
+.scores li {
+    font-size: 1.3rem;
+}
+
+.scores p {
+    font-size: 1.3rem;
+    margin-top: 0.6rem;
+}
+
+.main-container {
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 8rem 10rem 10rem;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.triplet {
+    height: 10rem;
+    width: 30rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.icon-move,
+.icon-result {
+    font-size: 48px;
+    padding: 0.5rem;
+}
+
+.icon-move {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.icon-move:hover {
+    transform: scale(1.4);
+}
+
+.icon-result {
+    border-radius: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.win {
+    background-color: rgba(0, 201, 0, 0.7);
+}
+
+.lose {
+    background-color: rgba(226, 0, 0, 0.7);
+}
+
+.draw {
+    background-color: rgba(255, 247, 0, 0.7);
+}

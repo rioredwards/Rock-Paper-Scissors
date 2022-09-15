@@ -1,40 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- metadata -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <!-- metadata -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- title and favicon -->
+        <title>Rock Paper Scissors</title>
 
-    <!-- title and favicon -->
-    <title>Web App</title>
-    <link rel="icon" type="image/x-icon" href="/assets/alchemy-favicon.png" />
+        <!-- js -->
+        <script type="module" src="app.js"></script>
 
-    <!-- js -->
-    <script type="module" src="app.js"></script>
+        <!-- css -->
+        <link rel="stylesheet" href="/styles/reset.css" />
+        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="/styles/style.css" />
+    </head>
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <body>
+        <main>
+            <section id="scoreboard" class="scoreboard">
+                <ul class="scores">
+                    <li>
+                        Wins:
+                        <p id="wins-display">0</p>
+                    </li>
+                    <li>
+                        Losses:
+                        <p id="losses-display">0</p>
+                    </li>
+                    <li>
+                        Draws:
+                        <p id="draws-display">0</p>
+                    </li>
+                    <li>
+                        Total:
+                        <p id="total-display">0</p>
+                    </li>
+                </ul>
+            </section>
 
-    <!-- css -->
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/global.css" />
-</head>
+            <section id="move" class="main-container">
+                <h2 id="move-text">Make Your Move!</h2>
+                <ul class="move_list triplet">
+                    <li>
+                        <button id="rockMove" class="icon-move">👊</button>
+                    </li>
+                    <li>
+                        <button id="paperMove" class="icon-move">✋</button>
+                    </li>
+                    <li>
+                        <button id="scissorsMove" class="icon-move">✌️</button>
+                    </li>
+                </ul>
+            </section>
 
-<body>
-    <header>
-        <img src="/assets/html_css_js.png">
-        <h1>Web App</h1>
-    </header>
-
-    <main>
-
-    </main>
-
-</body>
-
+            <section id="results" class="main-container hidden">
+                <h2 id="results-text">Win!</h2>
+                <ul class="result_list triplet">
+                    <li>
+                        <div id="rockResult" class="icon-result">👊</div>
+                        <p id="rockSelectionText" class="selection-text"></p>
+                    </li>
+                    <li>
+                        <div id="paperResult" class="icon-result">✋</div>
+                        <p id="paperSelectionText" class="selection-text"></p>
+                    </li>
+                    <li>
+                        <div id="scissorsResult" class="icon-result">✌️</div>
+                        <p id="scissorsSelectionText" class="selection-text"></p>
+                    </li>
+                </ul>
+                <button id="playAgainButton">Play Again</button>
+            </section>
+        </main>
+    </body>
 </html>
