@@ -4,6 +4,13 @@ let userSelection; // rock, paper or scissors
 let compSelection; // rock, paper or scissors
 let result; // 'Win!', 'Lose!' or 'Draw!'
 
+const scoreboard = {
+    wins: 0,
+    losses: 0,
+    draws: 0,
+    total: 0,
+};
+
 const selections = [
     {
         value: 'rock',
@@ -26,7 +33,7 @@ function loadPage() {
     } else {
         displayResults();
     }
-    // displayScoreboard();
+    displayScoreboard();
 }
 
 function getCompMove() {
@@ -45,6 +52,21 @@ function getResult(userSelection, compSelection) {
     }
 }
 
+function updateScoreboard() {
+    scoreboard.total++;
+    switch (result) {
+        case 'Win!':
+            scoreboard.wins++;
+            break;
+        case 'Lose!':
+            scoreboard.losses++;
+            break;
+        case 'Draw!':
+            scoreboard.draws++;
+            break;
+    }
+}
+
 /* Component */
 // get DOM
 // Sections
@@ -52,10 +74,10 @@ const moveSection = document.getElementById('move');
 const resultsSection = document.getElementById('results');
 
 // Scoreboard Section
-const wins = document.getElementById('wins-display');
-const loses = document.getElementById('loses-display');
-const draws = document.getElementById('draws-display');
-const total = document.getElementById('total-display');
+const winsEl = document.getElementById('wins-display');
+const lossesEl = document.getElementById('losses-display');
+const drawsEl = document.getElementById('draws-display');
+const totalEl = document.getElementById('total-display');
 
 // Move Sections
 const rockBtn = document.getElementById('rockMove');
@@ -73,6 +95,13 @@ const scissorsSelectionText = document.getElementById('scissorsSelectionText');
 const playAgainBtn = document.getElementById('playAgainButton');
 
 // display
+function displayScoreboard() {
+    winsEl.textContent = scoreboard.wins;
+    lossesEl.textContent = scoreboard.losses;
+    drawsEl.textContent = scoreboard.draws;
+    totalEl.textContent = scoreboard.total;
+}
+
 function displayMove() {
     resultsSection.classList.add('hidden');
     moveSection.classList.remove('hidden');
@@ -143,13 +172,12 @@ function resetMove() {
     scissorsResult.className = 'icon-result';
 }
 
-// function displayScoreboard() {} TODO
-
 // event listeners
 rockBtn.addEventListener('click', () => {
     userSelection = selections[0];
     compSelection = getCompMove();
     result = getResult(userSelection, compSelection);
+    updateScoreboard();
     gameState = 'results';
     console.log('rock click');
     console.log(result);
@@ -162,6 +190,7 @@ paperBtn.addEventListener('click', () => {
     userSelection = selections[1];
     compSelection = getCompMove();
     result = getResult(userSelection, compSelection);
+    updateScoreboard();
     gameState = 'results';
     console.log('paper click');
     console.log(result);
@@ -174,6 +203,7 @@ scissorsBtn.addEventListener('click', () => {
     userSelection = selections[2];
     compSelection = getCompMove();
     result = getResult(userSelection, compSelection);
+    updateScoreboard();
     gameState = 'results';
     console.log('scissors click');
     console.log(result);
